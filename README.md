@@ -116,4 +116,10 @@ Membuka isi file **/etc/passwd** di server
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file:///etc/passwd
 ```
 
+## SQL Injection
+SQL Injection (SQLi) adalah celah keamanan web yang memungkinkan penyerang mengintruksi query yang dibuat aplikasi untuk melihat data yang biasanya tidak dapat mereka ambil, misalnya data pengguna lain atau data lain apapun yang dapat diakses oleh aplikasi itu sendiri
+
+### Security Low
+ 
+
 Referensi: https://portswigger.net/web-security/learning-path
