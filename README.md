@@ -341,6 +341,9 @@ run
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2051.JPG)
 
 - Buka file gambar yang sudah terupload ke server dengan menggunakan celah keamanan **File Inclusion** dengan **Security High**
+```sh
+http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file:///var/www/html/DVWA/hackable/uploads/nama_file_gambar
+```
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2052.JPG)
 
