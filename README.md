@@ -351,6 +351,44 @@ http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file:///var/www/html/DVWA/hacka
 
 ![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2053.JPG)
 
+## Insecure CAPTCHA
+Captcha adalah fitur yang memberikan lapisan keamanan pada website untuk memastikan bahwa website diakses oleh manusia sungguhan, bukan robot dan mencegah tindakan spam. Akan tetapi konfigurasi yang buruk dapat menyebabkan akses tidak sah
+
+- Karena DVWA berjalan secara lokal, maka gunakan key berikut ini: 
+```sh
+Site key: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+Secret key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+```
+
+- Copy key diatas dan paste di `DVWA/config/config.inc.php`
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2065.JPG)
+
+- Buka halaman Insecure Captcha di DVWA
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2066.JPG)
+
+- Isi form diatas dan gunakan tool Burpsuite untuk merekam setiap request yang terjadi
+
+### Security Low
+- Klik kanan pada request step2 lalu pilih **Send to Repeater**
+- Ubah password lalu klik tombol **Send**
+- Disini terlihat bahwa, kita bisa mengubah password apapun tanpa harus melewati captcha
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2067.JPG)
+
+### Security Medium
+- Lakukan hal yang sama seperti sebelumnya
+- Disini terlihat bahwa, kita cukup menambahkan parameter **passed_captcha=true** untuk mengubah password apapun tanpa harus melewati captcha
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2068.JPG)
+
+### Security High
+- Lakukan hal yang sama seperti sebelumnya
+- Untuk melakukan bypass pada captcha, cukup ubah **User-Agent: reCAPTCHA** dan **g-recaptcha-response=hidd3n_valu3**. User token bisa digunakan untuk lebih dari sekali tanpa harus mengubah nilai tokennya
+
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2069.JPG)
+
 ## SQL Injection
 SQL Injection (SQLi) adalah celah keamanan web yang memungkinkan penyerang mengintruksi query yang dibuat aplikasi untuk melihat data yang biasanya tidak dapat mereka ambil, misalnya data pengguna lain atau data lain apapun yang dapat diakses oleh aplikasi itu sendiri
 
@@ -430,6 +468,15 @@ sqlmap -u "http://<IP_Server>/DVWA/vulnerabilities/sqli_blind/?id=1" --cookie="P
 
 ## Weak Session IDS
 ID sesi yang lemah dapat memungkinkan pengguna lain dibajak sesinya. Jika ID sesi diambil dari rentang nilai yang kecil, penyerang hanya perlu menyelidiki ID sesi yang dipilih secara acak hingga menemukan kecocokan.
+
+
+
+### Security Low
+```sh
+document.cookie.split(";")[0]
+```
+
+
 
 ## XSS (DOM)
 DOM based XSS muncul ketika Javascript mengambil data dari sumber yang dapat dikontrol oleh penyerang misalnya seperti URL, yang memungkinkan penyerang mengeksekusi code JavaScript yang berbahaya dan membajak akun pengguna lain.
