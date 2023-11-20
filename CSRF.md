@@ -23,20 +23,20 @@ Mengganti password pengguna menjadi **test123** lewat halaman palsu (phising). S
 </html>
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%204.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/CSRF/csrf%201.JPG)
 
 ## Security Medium (XSRF)
 - Serangan ini akan menggabungkan 2 teknik yaitu CSRF dan XSS Stored
 - Pindah ke halaman XSS (Stored) dengan **Security Low** lalu ubah maxlength pada **textarea** dari 50 menjadi 500 karakter melalui inspect element
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2017.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/CSRF/csrf%202.JPG)
 
 - Masukkan script dibawah ini ke field **Message** lalu klik tombol **Sign Guestbook** untuk menjalankan
 ```sh
 <img src="/DVWA/vulnerabilities/csrf/?password_new=test&password_conf=test&Change=Change">
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2042.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/CSRF/csrf%203.JPG)
 
 ## Security High
 - Serangan ini akan memanfaatkan celah keamanan file upload kemudian melakukan by pass terhadap parameter **user_token** untuk mengeksekusi CSRF
@@ -64,7 +64,7 @@ Mengganti password pengguna menjadi **test123** lewat halaman palsu (phising). S
 ```
 - Pindah ke halaman File Upload dengan **Security Low** dan upload file html diatas
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2043.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/CSRF/csrf%204.JPG)
 
 - Ubah ke **Security High** dan buka halaman CSRF
 - Buka file HTML yang sudah diupload untuk mengubah password user menjadi **hacker** sesuai file HTML diatas
@@ -72,4 +72,4 @@ Mengganti password pengguna menjadi **test123** lewat halaman palsu (phising). S
 http://<IP_Server>/DVWA/hackable/uploads/<nama_file>.html
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2044.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/CSRF/csrf%205.JPG)

