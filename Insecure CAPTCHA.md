@@ -9,7 +9,7 @@ Secret key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
 
 - Copy key diatas dan paste di `DVWA/config/config.inc.php`
 
-![alt text](hhttps://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/insecure%20captcha/ic%201.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/insecure%20captcha/ic%201.JPG)
 
 - Buka halaman Insecure Captcha di DVWA
 

@@ -39,16 +39,16 @@ ID sesi yang lemah dapat memungkinkan pengguna lain dibajak sesinya. Jika ID ses
 ## Security High
 - Generate pertama
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/dt%2078.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/weak%20session%20ids/weak%20session%209.JPG)
 
 - Generate kedua
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/weak%20session%20ids/weak%20session%209.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/weak%20session%20ids/weak%20session%2010.JPG)
 
 - Generate ketiga
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/weak%20session%20ids/weak%20session%2010.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/weak%20session%20ids/weak%20session%2011.JPG)
 
 - Nilai **dvwaSession** adalah c81e728d9d4c2f636f067f89cc14862c, eccbc87e4b5ce2fe28308fd9f2a7baf3, a87ff679a2f3e71d9181a67b7542122c. Nilai tersebut menunjukkan sebuah hash. Anda bisa melakukan cracking di https://crackstation.net/
 
-![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/weak%20session%20ids/weak%20session%2011.JPG)
+![alt text](https://github.com/rahardian-dwi-saputra/dvwa-tricks/blob/main/assets/weak%20session%20ids/weak%20session%2012.JPG)
